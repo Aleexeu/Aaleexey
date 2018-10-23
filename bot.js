@@ -16,6 +16,7 @@ bot.on('message', message => {
 let cmd = arraymsg[0].toLowerCase()
 let args = message.content.split(" ").slice(1);
 if(cmd === '!!anuncio'){
+    if(!message.member.hasPermissions("BAN_MEMBERS")) return message.reply("você não tem permissão de usar esse comando")
     const args = message.content.split(" ").slice(1);
     const prefix = '/'
     message.delete()
