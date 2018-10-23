@@ -3,7 +3,7 @@ const bot = new Discord.Client();
 
 
 bot.on('ready', () => {
-    bot.user.setPresence({ game: { name: `» IP: jogar.darknes-network.com`, type: 1, url: 'https://www.youtube.com/yRecky'} });
+    bot.user.setPresence({ game: { name: `meu criador jogado no vaso/ Nitroo#4025`, type: 1, url: 'https://www.youtube.com/yRecky'} });
     console.log('Logado');
 });
 bot.on('message', message => {
