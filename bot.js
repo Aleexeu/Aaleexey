@@ -1,44 +1,51 @@
-import discord
-import asyncio
-import random
-
-client = discord.Client()
+const Discord = require('discord.js');
+const bot = new Discord.Client();
 
 
-@client.event
-async def on_ready():
-    print('BOT ONLINE - OLÁ MUNDO')
-    print(client.user.name)
-    print(client.user.id)
-    print('-----PR------')
+bot.on('ready', () => {
+    bot.user.setPresence({ game: { name: `» IP: jogar.darknes-network.com`, type: 1, url: 'https://www.youtube.com/yRecky'} });
+    console.log('Logado');
+});
+bot.on('message', message => {
+    if (message.content.startsWith('!!twitter')){
+        message.channel.send('Twitter:  https://twitter.com/RedeDarknes');
+    }
+});
+bot.on('message', message => {
+    let arraymsg = message.content.split(" ");
+let cmd = arraymsg[0].toLowerCase()
+let args = message.content.split(" ").slice(1);
+if(cmd === '!!anuncio'){
+    const args = message.content.split(" ").slice(1);
+    const prefix = '/'
+    message.delete()
+    if (!args.slice(0).join(' ')) return message.channel.send('test')
+    message.channel.send({embed:{
+        'description':args.slice(0).join(' ')
+        ,'color':message.member.highestRole.color,
+        "thumbnail":{
+            }
+        }
+    }
+    )
+}
+});
+bot.on('message', message => {
+    let arraymsg = message.content.split(" ");
+let cmd = arraymsg[0].toLowerCase()
+let args = message.content.split(" ").slice(1)
+    if(cmd === '!!ban'){
+        const args = message.content.split(" ").slice(1);
+        var razao = args.slice(1).join(" ")
+            var membro = message.mentions.members.first();
+            if(!message.member.hasPermissions("BAN_MEMBERS")) return message.reply("você não tem permissão de usar esse comando")
+            if(!membro) return message.reply("você não mencinou ninguém")
+            if(!membro.bannable) return message.reply("Você não pode banir essa pessoa")
+            if(razao.length < 1) return message.reply("Coloque um motivo!")
+            membro.ban()
+            message.channel.send(`O membro ${membro.user.username} foi banido do servidor.\nMotivo: ${razao}`)
+      }
+});
 
-
-@client.event
-async def on_message(message):
-    if message.content.lower().startswith('/test'):
-        await client.send_message(message.channel, "Olá Mundo, estou vivo!!")
-
-    if message.content.lower().startswith('/loja'):
-        await client.send_message(message.channel, "https://blastcraft.com.br/")
-
-    if message.content.lower().startswith('/twitter'):
-        await client.send_message(message.channel, "Twitter - https://twitter.com/AlexeyOficial")
-
-    if message.content.lower().startswith('/canal'):
-        await client.send_message(message.channel, "Aque está o canal do aleexey: https://www.youtube.com/channel/UCvCRTD0r6niKowGIUACV8NQ")
-
-    if message.content.lower().startswith ('/ajuda'):
-        await client.send_message(message.channel, "Os helps podem te ajudar, se não tiver  nenhum, fale com o configurador, ou o nitroo.")
-
-    if message.content.lower().startswith('/moeda'):
-        if message.author.id == "218030525003071489":  # adicione o seu ID!
-            escolha = random.randint(1, 2)
-            if escolha == 1:
-                await client.add_reaction(message, '😀')
-            if escolha == 2:
-                await client.add_reaction(message, '👑')
-        else:
-            await client.send_message(message.channel, " Você não tem permissão para usar esse comando")
-
-
-client.run('NDc3NjMxODgzOTc5NTIyMDUw.DlBlrw.gknHZanVZWFup4_GHY2toEhxKJ0')
+// THIS  MUST  BE  THIS  WAY
+bot.login(process.env.BOT_TOKEN);
