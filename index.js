@@ -20,18 +20,9 @@ bot.on('guildMemberAdd', member => {
         .addField('Você é o membro de numero:', member.guild.memberCount)
         .setDescription("Obrigado por entrar leia as regras e seja feliz!")
         .setTimestamp()
-    bot.channels.get('501021782787227648').send({embed})});
-
-fs.readdir("./comandos", (err, files) => {
-    if(err) console.error(err);
-
-    let arquivojs = files.filter(f => f.split(".").pop() == "js");
-    arquivojs.forEach((f,i) => {
-        let props = require(`./comandos/${f}`);
-        console.log(`comando ${f} carregado com sucesso.`)
-        bot.commands.set(props.help.name, props);
-    });
+    bot.channels.get('501021782787227648').send({embed})
 });
+
 
 bot.on("GuildMemberRemove", async member => {
     if (member.guild.id !== "476923523617783808") return;
@@ -44,17 +35,7 @@ bot.on("GuildMemberRemove", async member => {
         .setFooter(`Biswcoitinho que saiu: ${member}`)
         .setDescription("Perdemos um biscoitinho!")
         .setTimestamp()
-    bot.channels.get('501021782787227648').send({embed})});
-
-fs.readdir("./comandos", (err, files) => {
-    if(err) console.error(err);
-
-    let arquivojs = files.filter(f => f.split(".").pop() == "js");
-    arquivojs.forEach((f,i) => {
-        let props = require(`./comandos/${f}`);
-        console.log(`comando ${f} carregado com sucesso.`)
-        bot.commands.set(props.help.name, props);
-    });
+    bot.channels.get('501021782787227648').send({embed})
 });
 
 bot.on("message", async message => {
