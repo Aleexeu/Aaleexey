@@ -24,6 +24,22 @@ bot.on('guildMemberAdd', member => {
 
 });
 
+bot.on('guildMemberRemove', member => {
+    if (member.guild.id !== "502572122015662092") return;
+    let avatar = member.user.avatarURL
+    let embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setThumbnail(avatar)
+        .setTitle("**SAIU!**")
+        .addField('Bem vindo(a)!', `Um biscoitinho saiu, nick dele é ${member}, espero que ele volte.`)
+        .setFooter(`Biscoitinho saiu do servidor: ${member}`)
+        .addField('Agora somos:', member.guild.memberCount)
+        .setDescription("Obrigado por entrar leia as regras e seja feliz!")
+        .setTimestamp()
+    bot.channels.get('502580899657809944').send({embed})
+
+});
+
 fs.readdir("./comandos", (err, files) => {
     if(err) console.error(err);
 
