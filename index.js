@@ -48,22 +48,6 @@ bot.on("message", async message => {
 
 });
 
-bot.on('guildMemberRemove', async member => {
-    if (member.guild.id !== "502572122015662092") return;
-    let avatar = member.user.avatarURL
-    let embed = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .setThumbnail(avatar)
-        .setTitle("** Saiu do servidor!**")
-        .addField('Saiu!', `O biscoitinho ${member} saiu do servidor:)`)
-        .setFooter(`Membro que entrou no server: ${member}`)
-        .addField('Espero que você volte!')
-        .setDescription("Biscoitinho vai fazer falta!")
-        .setTimestamp()
-    bot.channels.get('502580899657809944').send(embed)
-
-});
-
 bot.on('ready', () =>{
     let status = [
         {name: 'Ajuda?│b!help', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
