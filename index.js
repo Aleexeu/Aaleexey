@@ -24,22 +24,6 @@ bot.on('guildMemberAdd', member => {
 
 });
 
-bot.on('guildMemberRemove', member => {
-    if (member.guild.id !== "502572122015662092") return;
-    let avatar = member.user.avatarURL
-    let embed = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .setThumbnail(avatar)
-        .setTitle("** Saiu do servidor!**")
-        .addField('Saiu!', `O biscoitinho ${member} saiu do servidor:)`)
-        .setFooter(`Membro que entrou no server: ${member}`)
-        .addField('Espero que você volte!')
-        .setDescription("Biscoitinho vai fazer falta!")
-        .setTimestamp()
-    bot.channels.get('502580899657809944').send(embed)
-
-});
-
 fs.readdir("./comandos", (err, files) => {
     if(err) console.error(err);
 
@@ -61,6 +45,22 @@ bot.on("message", async message => {
         
     }
   } 
+
+});
+
+bot.on('guildMemberRemove', async member => {
+    if (member.guild.id !== "502572122015662092") return;
+    let avatar = member.user.avatarURL
+    let embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setThumbnail(avatar)
+        .setTitle("** Saiu do servidor!**")
+        .addField('Saiu!', `O biscoitinho ${member} saiu do servidor:)`)
+        .setFooter(`Membro que entrou no server: ${member}`)
+        .addField('Espero que você volte!')
+        .setDescription("Biscoitinho vai fazer falta!")
+        .setTimestamp()
+    bot.channels.get('502580899657809944').send(embed)
 
 });
 
