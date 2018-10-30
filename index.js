@@ -37,7 +37,9 @@ bot.on("message", async message => {
     if (!message.member.hasPermission("ADMINISTRATOR")) return; {
   if (message.content.startsWith('https://discord.gg/')) {
         message.delete();
-        return message.channel.send(`${message.author}, você não pode divulgar links aqui!`);
+        return message.channel.send(`
+<a:Alerta:501028184641241108> Alerta, o ${message.author} está tentando divulgar outro grupo discord! 
+<a:Alerta:501028184641241108>`);
         
     }
   } 
