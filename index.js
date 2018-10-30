@@ -23,7 +23,6 @@ bot.on('guildMemberAdd', member => {
     bot.channels.get('501021782787227648').send({embed})
 });
 
-
 bot.on("GuildMemberRemove", async member => {
     if (member.guild.id !== "476923523617783808") return;
     let avatar = member.user.avatarURL
