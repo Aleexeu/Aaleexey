@@ -33,9 +33,26 @@ fs.readdir("./comandos", (err, files) => {
     });
 });
 
-bot.on('ready', () => {
-    console.log(`O bot ${bot.user.username} ficou online com sucesso.`)
-    bot.user.setActivity("BISCOITO PARA 260 PESSOAS", {type: "PLAYING"});
+bot.on('ready', () =>{
+    let status = [
+        {name: 'Ajuda?│b!help', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
+        {name: 'BISCOITO PARA 260 PESSOAS', type: 'LISTENING'},
+        {name: 'Minecraft', type: 'PLAYING'},
+        {name: 'Videos do SrBiscoito', type: 'WATCHING'},
+      ];
+      
+      //STREAMING = Transmitindo
+      //LISTENING = Ouvindo
+      //PLAYING = Jogando
+      //WATCHING = Assistindo
+      
+        function setStatus() {
+            let randomStatus = status[Math.floor(Math.random() * status.length)];
+            bot.user.setPresence({game: randomStatus});
+        }
+      
+        setStatus();
+        setInterval(() => setStatus(), 10000);  //10000 = 10Ms = 10 segundos
 });
 
 bot.on('message', message => {
