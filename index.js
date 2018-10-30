@@ -33,7 +33,7 @@ fs.readdir("./comandos", (err, files) => {
     });
 });
 
-bot.on("GuildMemberRemove" async member => {
+bot.on("GuildMemberRemove", async member => {
     if (member.guild.id !== "476923523617783808") return;
     let avatar = member.user.avatarURL
     let embed = new Discord.RichEmbed()
