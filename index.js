@@ -20,7 +20,25 @@ bot.on('guildMemberAdd', member => {
         .addField('Você é o membro de numero:', member.guild.memberCount)
         .setDescription("Obrigado por entrar leia as regras e seja feliz!")
         .setTimestamp()
-    bot.channels.get('501021782787227648').send({embed})});
+    bot.channels.get('501021782787227648').send({embed})
+
+});
+
+bot.on('guildMemberRemove', member => {
+    if (member.guild.id !== "502572122015662092") return;
+    let avatar = member.user.avatarURL
+    let embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setThumbnail(avatar)
+        .setTitle("** Saiu do servidor!**")
+        .addField('Saiu!', `O biscoitinho ${member} saiu do servidor:)`)
+        .setFooter(`Membro que entrou no server: ${member}`)
+        .addField('Espero que você volte!')
+        .setDescription("Biscoitinho vai fazer falta!")
+        .setTimestamp()
+    bot.channels.get('502580899657809944').send(embed)
+
+});
 
 fs.readdir("./comandos", (err, files) => {
     if(err) console.error(err);
