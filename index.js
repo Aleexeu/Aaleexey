@@ -33,6 +33,31 @@ fs.readdir("./comandos", (err, files) => {
     });
 });
 
+bot.on('guildMemberAdd', member => {
+    if (member.guild.id !== "476923523617783808") return;
+    let avatar = member.user.avatarURL
+    let embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setThumbnail(avatar)
+        .setTitle("** <a:Rainbow:497431261657432065> bem-vindo**")
+        .addField('Bem vindo(a)!', `O ${member} saiu do servidor:)`)
+        .setFooter(`Membro que entrou no saiu: ${member}`)
+        .addField('Ele saiu, agora somos:', member.guild.memberCount)
+        .setDescription("Obrigado por entrar leia as regras e seja feliz!")
+        .setTimestamp()
+    bot.channels.get('501021782787227648').send({embed})});
+
+fs.readdir("./comandos", (err, files) => {
+    if(err) console.error(err);
+
+    let arquivojs = files.filter(f => f.split(".").pop() == "js");
+    arquivojs.forEach((f,i) => {
+        let props = require(`./comandos/${f}`);
+        console.log(`comando ${f} carregado com sucesso.`)
+        bot.commands.set(props.help.name, props);
+    });
+});
+
 bot.on("message", async message => {
     if (!message.member.hasPermission("ADMINISTRATOR")) return; {
   if (message.content.startsWith('https://discord.gg/')) {
