@@ -33,17 +33,17 @@ fs.readdir("./comandos", (err, files) => {
     });
 });
 
-bot.on('guildMemberAdd', member => {
+bot.on("GuildMemberRemove" async member => {
     if (member.guild.id !== "476923523617783808") return;
     let avatar = member.user.avatarURL
     let embed = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setThumbnail(avatar)
-        .setTitle("** <a:Rainbow:497431261657432065> bem-vindo**")
-        .addField('Bem vindo(a)!', `O ${member} saiu do servidor:)`)
-        .setFooter(`Membro que entrou no saiu: ${member}`)
+        .setTitle("** <a:tuturum:500451380860026885> Saiu.**")
+        .addField('Saiu!!', `O ${member} saiu do servidor:)`)
+        .setFooter(`Membro que saiu: ${member}`)
         .addField('Ele saiu, agora somos:', member.guild.memberCount)
-        .setDescription("Obrigado por entrar leia as regras e seja feliz!")
+        .setDescription("Vai fazer falta!")
         .setTimestamp()
     bot.channels.get('501021782787227648').send({embed})});
 
