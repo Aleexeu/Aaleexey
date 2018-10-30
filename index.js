@@ -36,9 +36,9 @@ fs.readdir("./comandos", (err, files) => {
 bot.on('ready', () =>{
     let status = [
         {name: 'Ajuda?│b!help', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
-        {name: 'BISCOITO PARA 260 PESSOAS', type: 'LISTENING'},
-        {name: 'Minecraft', type: 'PLAYING'},
-        {name: 'Videos do SrBiscoito', type: 'WATCHING'},
+        {name: 'minecraft', type: 'LISTENING'},
+        {name: 'BISCOITO PARA 260 PESSOAS', type: 'PLAYING'},
+        {name: 'videos do SrBiscoito', type: 'WATCHING'},
       ];
       
       //STREAMING = Transmitindo
