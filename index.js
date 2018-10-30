@@ -33,6 +33,17 @@ fs.readdir("./comandos", (err, files) => {
     });
 });
 
+bot.on("message", async message => {
+    if (!message.member.hasPermission("ADMINISTRATOR")) return; {
+  if (message.content.startsWith('https://discord.gg/')) {
+        message.delete();
+        return message.channel.send(`${message.author}, você não pode divulgar links aqui!`);
+        
+    }
+  } 
+
+});
+
 bot.on('ready', () =>{
     let status = [
         {name: 'Ajuda?│b!help', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
