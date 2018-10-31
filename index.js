@@ -52,7 +52,7 @@ bot.on('ready', () =>{
     let status = [
         {name: '🍪 Ajuda?│b!help', type: 'STREAMING', url: 'https://twitch.tv/biscoito'},
         {name: '🍪 as músicas do SrBiscoito', type: 'LISTENING'},
-        {name: '🍪 BISCOITO PARA 260 PESSOAS', type: 'PLAYING'},
+        {name: `🍪 BISCOITO PARA ${message.guild.memberCount} PESSOAS`, type: 'PLAYING'},
         {name: '🍪 videos do SrBiscoito', type: 'WATCHING'},
         {name: 'b!help |🍪 Estou sendo desennvolvido pelo SenhorBiscoito#6339', type: 'WATCHING'},
       ];
