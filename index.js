@@ -24,6 +24,18 @@ bot.on('guildMemberAdd', member => {
 
 });
 
+bot.on("guildMemberRemove", async member => {
+    if (member.guild.id !== "476923523617783808") return;
+    let avatar = member.user.avatarURL
+    let embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setThumbnail(avatar)
+        .addField('Saida!', `Um biscoitinho saiu, nick dele é ${member}, espero que ele volte.`)
+        .setTimestamp()
+    bot.channels.get('501021782787227648').send({embed})
+
+});
+
 fs.readdir("./comandos", (err, files) => {
     if(err) console.error(err);
 
