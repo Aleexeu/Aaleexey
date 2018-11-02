@@ -16,9 +16,6 @@ bot.on('guildMemberAdd', member => {
         .setThumbnail(avatar)
         .setTitle("** <a:Rainbow:497431261657432065> bem-vindo**")
         .addField('Bem vindo(a)!', `Bem vindo(a) ${member} Ao servidor :)`)
-        .setFooter(`Membro que entrou no server: ${member}`)
-        .addField('Você é o membro de numero:', member.guild.memberCount)
-        .setDescription("Obrigado por entrar leia as regras e seja feliz!")
         .setTimestamp()
     bot.channels.get('501021782787227648').send({embed})
 
