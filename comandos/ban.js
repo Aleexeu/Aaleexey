@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
         description: "Você digitou b!ban, talvez precise de ajuda ?\n \nSe você for membro o comando vai ser bloqueado, agora se você é da staff, digite:\n \n b!ban @membro",
         color: 0xbc0076,
         footer: {
-            "icon_url": message.bot.displayAvatarURL,
+            "icon_url": message.author.displayAvatarURL,
             "text": "Biscorde™ 🎃 | Todos os direitos reservados."
           },
         }
