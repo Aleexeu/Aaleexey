@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
         color: 0xbc0076,
         footer: {
             "icon_url": message.author.displayAvatarURL,
-            "text": "Biscorde™ 🎃 | Todos os direitos reservados."
+            "text": "Biscorde | Todos os direitos reservados."
           },
         }
         })
